@@ -1,0 +1,17 @@
+Array Program
+1D Matrix
+1. Sum of elements
+2. Prime numbers in array
+3. Binary Search-Sorted array in a ascending order
+4. Linear Search
+5. Bubble Sort
+6. Even & odd numbers in a array
+7. Selection Sort
+8. Insertion Sort
+9. Count number of times a element is repeated in an array
+10. Occurences of an element in a array
+11. Transpose of an array
+
+2D Matrix
+1. Accept and display 2d matrix
+2. addition, substraction and multiplication of 2d matrix
