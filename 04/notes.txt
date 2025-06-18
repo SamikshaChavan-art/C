@@ -1,0 +1,8 @@
+Operators 
+1. Arithematic Operators- Addition, Substraction, Multiplication, Division, Modulus
+2. Comparison/Relational Operators- >,<,=,==,>=,<=
+3. Logical Operators- 
+&& - Both sides true returns boolean 1
+|| - Either if the two true returns boolean 1
+! - Returns true if it is false and vice versa
+4. 
