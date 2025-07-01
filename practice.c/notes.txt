@@ -1,0 +1,82 @@
+✅ Day’s Full Task List
+🧩 1. Functions with 4 Styles
+a. Return + Parameter
+ int factorial(int n)
+
+ int sumOfDigits(int n)
+
+ int isPrime(int n) returning 1/0
+
+ int reverseNumber(int n)
+
+b. No Return + Parameter
+ void checkPerfect(int n)
+
+ void checkArmstrong(int n)
+
+ void printFactors(int n)
+
+ void isPalindrome(int n)
+
+c. Return + No Parameter
+ int getNumber()
+
+ int getPositiveInt()
+
+ int getInputAndReturn() — for prompting number
+
+d. No Return + No Parameter
+ void checkNeon()
+
+ void printFibonacciSeries()
+
+ void promptAndCheckPrime()
+
+ void promptAndCheckPalindrome()
+
+🔁 2. Recursion-Based Programs
+ int factorialRec(int n)
+
+ int fibonacciRec(int n)
+
+ int sumDigitsRec(int n)
+
+ int powerRec(int base, int exp)
+
+🔤 3. String Operations
+ Input & display string (void inputString())
+
+ int strLength(char s[])
+
+ void strReverse(char s[])
+
+ void strCopy(char dest[], char src[])
+
+ int strCompare(char s1[], char s2[])
+
+ void countVowelsConsonants(char s[])
+
+📦 4. Static Array Operations
+Assume: int arr[20], and a variable n for current size
+
+Insertion
+ insertAtStart(int x)
+
+ insertAtEnd(int x)
+
+ insertAtPos(int x, int pos)
+
+Deletion
+ deleteFromStart()
+
+ deleteFromEnd()
+
+ deleteFromPos(int pos)
+
+Others
+ deleteDuplicates()
+
+ appendElement(int x)
+
+ displayArray()
+

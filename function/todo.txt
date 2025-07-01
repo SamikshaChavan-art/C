@@ -1,0 +1,108 @@
+That's a great way to understand **function types in C** — by practicing programs based on combinations of:
+
+* ✅ Return type (`return` / `void`)
+* ✅ Parameters (`with` / `without`)
+
+Here’s a **complete list** of small programs you can write to practice all 4 function types — with **easy examples**:
+
+---
+
+## 🧩 1. **No Return, No Parameter**
+
+```c
+void greet() {
+    printf("Hello, Welcome to Function Practice!\n");
+}
+```
+
+### 🔹 Practice Programs:
+
+| Program                          | Description                  |
+| -------------------------------- | ---------------------------- |
+| Greet User                       | Just print a welcome message |
+| Print numbers 1 to 10            | Use a loop inside function   |
+| Check if a fixed number is prime | Use a hardcoded value        |
+| Print Fibonacci series (fixed)   | e.g., first 5 terms          |
+| Print table of 5                 | No input, fixed logic        |
+
+---
+
+## 🧩 2. **No Return, With Parameters**
+
+```c
+void printTable(int num) {
+    for (int i = 1; i <= 10; i++)
+        printf("%d x %d = %d\n", num, i, num * i);
+}
+```
+
+### 🔹 Practice Programs:
+
+| Program                         | Description                 |
+| ------------------------------- | --------------------------- |
+| Print multiplication table of N | Pass number to function     |
+| Check prime number              | Pass number, no return      |
+| Print factors of a number       | Pass number, print directly |
+| Print reverse of a number       | Pass number, print reverse  |
+| Check palindrome                | Pass number or string       |
+
+---
+
+## 🧩 3. **Return, No Parameter**
+
+```c
+int getInput() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    return n;
+}
+```
+
+### 🔹 Practice Programs:
+
+| Program                        | Description                       |
+| ------------------------------ | --------------------------------- |
+| Get user input                 | Return an integer                 |
+| Return fixed value (e.g., 100) | Hardcoded return                  |
+| Generate a random number       | No input, just return value       |
+| Return sum of fixed numbers    | Compute internally, return result |
+
+---
+
+## 🧩 4. **Return, With Parameters**
+
+```c
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    return n * factorial(n - 1);
+}
+```
+
+### 🔹 Practice Programs:
+
+| Program                 | Description                    |
+| ----------------------- | ------------------------------ |
+| Factorial               | Return factorial of a number   |
+| Sum of digits           | Return sum of digits of number |
+| Power of a number (a^b) | Two parameters, return result  |
+| Reverse number          | Return reversed number         |
+| GCD of two numbers      | Return GCD                     |
+| Check palindrome        | Return 1 (true) or 0 (false)   |
+| Count digits            | Return number of digits        |
+
+---
+
+## 🛠 How to Practice:
+
+Create 4 files or sections:
+
+```c
+// Function types:
+
+// 1. void func();                  → No return, No param
+// 2. void func(int);              → No return, Param
+// 3. int func();                  → Return, No param
+// 4. int func(int);               → Return, Param
+
