@@ -1,24 +1,22 @@
 #include <stdio.h>
 int main()
 {
-    char str1[10], str2[15];
-    int l=0;
-    int i, j;
+    char str1[10];
+    char str2[10];
+    int i, j, count = 0;
 
-    printf("Enter string 1 and string 2:");
+    printf("Enter two strings:");
     scanf("%s%s", &str1, &str2);
-    for (int i = 0; str1[i]!='\0'; i++)
+
+    for (i = 0; str1[i] != '\0'; i++)
     {
-        l++;
+        count++;
     }
 
-    for (j=0, i = l; str2[j]!='\0'; i++,j++)
+    for (j = 0, i = count; str2[j] != '\0'; i++, j++)
     {
-       str1[i]=str2[j];
+        str1[i]=str2[j];
     }
     str1[i]='\0';
-
-    printf("Concatenated string is %s", str1);
-    
-    
+    printf("Concatenated String %s", str1);
 }
