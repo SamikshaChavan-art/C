@@ -21,13 +21,14 @@ int main()
     do
     {
         int ch;
-        printf("\n1. Create\n2. Display\n3. Search\n4. Insert\n5. Delete\n6. Deposit\n8. Withdraw\n9. Upgrade\n10. EXIT");
+        printf("\n1. Create\n2. Display\n3. Search\n4. Insert\n5. Delete\n6. Deposit\n7. Withdraw\n8. Upgrade\n9. EXIT");
         printf("\nEnter your choice?");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
         {
+            // create
             printf("Enter how accounts you want to add?");
             scanf("%d", &count);
             for (int i = 0; i < count; i++)
@@ -67,6 +68,7 @@ int main()
 
         case 2:
         {
+            // Display or Read
             for (int i = 0; i < count; i++)
             {
                 printf("\n===============Account Details for %d=======================\n", (i + 1));
@@ -83,9 +85,6 @@ int main()
                 else if (b1[i].balance > 5000000)
                 {
                     printf("\nBalance exceeds from limit, please maintain minimum balance or upgrade your account!!");
-                    // add type of account, upgrade functionality
-                    // limit on withdrawal
-                    // limit on deposit
                 }
                 printf("\n============================================================\n");
             }
@@ -94,6 +93,7 @@ int main()
         }
         case 3:
         {
+            // Search
             int search;
             int flag = 0;
             printf("Enter Account Number to Search");
@@ -123,6 +123,7 @@ int main()
         }
         case 4:
         {
+            // Insert
             int n;
             printf("Enter how accounts you want to add?");
             scanf("%d", &n);
@@ -157,17 +158,37 @@ int main()
 
                 printf("Enter Acc Name:");
                 scanf("%s", b1[i].acc_name);
+                printf("\t1. Gold\t2. Silver\t3. Regular");
+                printf("\nPlease select type of account:");
+                scanf("%d", &type);
+                switch (type)
+                {
+                case 1:
+                    strcpy(b1[i].acc_type, "Gold");
+                    break;
+                case 2:
+                    strcpy(b1[i].acc_type, "Silver");
+                    break;
+                case 3:
+                    strcpy(b1[i].acc_type, "Regular");
+                    break;
+                default:
+                    printf("Please select a valid type!");
+                    break;
+                }
+
                 printf("Enter Acc Branch:");
                 scanf("%s", b1[i].branch);
                 printf("Enter Balance:");
                 scanf("%d", &b1[i].balance);
             }
-            count++;
+            count += n;
 
             break;
         }
         case 5:
         {
+            // delete
             int search;
             printf("Enter Account Number that you want to delete?");
             scanf("%d", &search);
@@ -195,7 +216,89 @@ int main()
             }
             break;
         }
-        case 10:
+
+        case 6:
+        {
+            // deposit
+            int deposit;
+            int useraccno;
+            int flag = -1;
+            printf("Please enter your account number!");
+            scanf("%d", &useraccno);
+            for (int i = 0; i < count; i++)
+            {
+                if (b1[i].accno == useraccno)
+                {
+                    flag = i;
+                    break;
+                }
+            }
+            if (flag >= 0)
+            {
+                printf("Account Found!!!");
+                printf("\nPlease enter amount you want to deposit:");
+                scanf("%d", &deposit);
+                b1[flag].balance += deposit;
+                printf("Balance Updated!!");
+            }
+            else
+            {
+                printf("Account Not Found!!!");
+            }
+
+            break;
+        }
+        case 7:
+        {
+            int withdraw;
+            int useraccno;
+            int flag = -1;
+            printf("Enter your Account Number:");
+            scanf("%d", &useraccno);
+            for (int i = 0; i < count; i++)
+            {
+
+                if (b1[i].accno == useraccno)
+                {
+                    flag = i;
+                    break;
+                }
+            }
+            if (flag >= 0)
+            {
+                printf("Account Found!!!");
+                printf("\nPlease enter amount you want to withdraw:");
+                scanf("%d", &withdraw);
+                if (b1[flag].balance < 5000)
+                {
+                    printf("Your balance is below limit!");
+                    printf("Enter -1 if you want to quit or upgrade your account!");
+                    int userflag;
+                    scanf("%d", &userflag);
+                    if (userflag == -1)
+                    {
+                        flag = -1;
+                        break;
+                    }
+                }
+                else if (b1[flag].balance > 5000)
+                {
+                    b1[flag].balance -= withdraw;
+                    printf("Balance Withdrawn!");
+                }
+            }
+
+            break;
+        }
+        case 8:
+        {
+            // upgrade accounts
+            // minimum limit based on this type
+            // deduct charges if minimum amount is not maintained over a period of time
+
+            break;
+        }
+        case 9:
         {
             printf("===========================THANK YOU FOR BANKING WITH US==========================");
             c = 0;
