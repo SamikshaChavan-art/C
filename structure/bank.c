@@ -1,24 +1,27 @@
 #include <stdio.h>
-#define MAX 20
+#include <string.h>
+// Add each functionality in function
+#define MAX 200
 struct Bank
 {
     int accno;
     char acc_name[50];
+    char acc_type[50];
     int balance;
     int withdrawal;
     int deposit;
-    float interest;
-    char branch[10];
+    char branch[50];
 };
 int main()
 {
     struct Bank b1[MAX];
     int count;
     int c = 1;
+    int type;
     do
     {
         int ch;
-        printf("\n1. Create\n2. Display\n3. Search\n4. Insert\n5. Delete\n6. Deposit\n8. Withdraw\n9. EXIT");
+        printf("\n1. Create\n2. Display\n3. Search\n4. Insert\n5. Delete\n6. Deposit\n8. Withdraw\n9. Upgrade\n10. EXIT");
         printf("\nEnter your choice?");
         scanf("%d", &ch);
         switch (ch)
@@ -33,9 +36,29 @@ int main()
                 scanf("%d", &b1[i].accno);
                 printf("Enter Acc Name:");
                 scanf("%s", b1[i].acc_name);
+                printf("\t1. Gold\t2. Silver\t3. Regular");
+                printf("\nPlease select type of account:");
+                scanf("%d", &type);
+                switch (type)
+                {
+                case 1:
+                    strcpy(b1[i].acc_type, "Gold");
+                    break;
+                case 2:
+                    strcpy(b1[i].acc_type, "Silver");
+                    break;
+                case 3:
+                    strcpy(b1[i].acc_type, "Regular");
+                    break;
+                default:
+                    printf("Please select a valid type!");
+                    break;
+                }
+
+                // Apply Switch case on Branch
                 printf("Enter Acc Branch:");
                 scanf("%s", b1[i].branch);
-                printf("Enter Balance:");
+                printf("Enter Balance <5000 or >5000000:");
                 scanf("%d", &b1[i].balance);
             }
 
@@ -49,8 +72,21 @@ int main()
                 printf("\n===============Account Details for %d=======================\n", (i + 1));
                 printf("\nAccount Number is: %d", b1[i].accno);
                 printf("\nAccount Name: %s", b1[i].acc_name);
+                printf("\nAccount Name: %s", b1[i].acc_type);
                 printf("\nAccount Branch: %s", b1[i].branch);
                 printf("\nAccount Balance: Rs.%d", b1[i].balance);
+                if (b1[i].balance < 5000)
+                {
+                    printf("\nPlease maintain minimum account balance of Rs. 5000!!");
+                    // charges on minbal
+                }
+                else if (b1[i].balance > 5000000)
+                {
+                    printf("\nBalance exceeds from limit, please maintain minimum balance or upgrade your account!!");
+                    // add type of account, upgrade functionality
+                    // limit on withdrawal
+                    // limit on deposit
+                }
                 printf("\n============================================================\n");
             }
 
@@ -70,6 +106,7 @@ int main()
                     printf("\n===============Account Details for %d Roll No=======================\n", search);
                     printf("\nAccount Number is: %d", b1[i].accno);
                     printf("\nAccount Name: %s", b1[i].acc_name);
+                    printf("\nAccount Name: %s", b1[i].acc_type);
                     printf("\nAccount Branch: %s", b1[i].branch);
                     printf("\nAccount Balance: Rs.%d", b1[i].balance);
                     printf("\n====================================================================\n");
@@ -133,7 +170,7 @@ int main()
         {
             int search;
             printf("Enter Account Number that you want to delete?");
-            scanf("%d",&search);
+            scanf("%d", &search);
             int flag = -1;
             for (int i = 0; i < count; i++)
             {
@@ -158,15 +195,18 @@ int main()
             }
             break;
         }
-        case 7:
+        case 10:
         {
+            printf("===========================THANK YOU FOR BANKING WITH US==========================");
             c = 0;
             break;
         }
 
         default:
+        {
+            printf("\nInvalid Input!");
             break;
         }
-
+        }
     } while (c);
 }
